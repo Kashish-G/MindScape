@@ -9,7 +9,7 @@ test_agent = Agent(
     seed="test_agent_seed",
     port=8001,
     endpoint=["http://127.0.0.1:8001/submit"],)
-
+print(test_agent.address)
 RECIPIENT_ADDRESS = "agent1q2jfxtfxnmxyhav7nsktqgrwtuzvaklvnlmtgye6vh7uhqfcnpunuq3rt3f"
 
 # Flag to track whether input has been taken

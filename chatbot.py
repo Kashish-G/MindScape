@@ -118,7 +118,7 @@ async def slaanesh_message_handler(ctx: Context, sender: str, msg: Message):
 
         response = model.generate_content(mentalassistant)
         print("Agent: ",response.text)
-        ctx.send("agent1q2grgx3lfpgx00m60njdmxmxq37f85vp6lwtpget9g06cwytft5tsuq7gu5", Message(message = response.text))  # goes to input agent
+        await ctx.send("agent1q2grgx3lfpgx00m60njdmxmxq37f85vp6lwtpget9g06cwytft5tsuq7gu5", Message(message = response.text))  # goes to input agent
         processed_result = (
             f"success"
         )
@@ -145,7 +145,7 @@ async def slaanesh_message_handler(ctx: Context, sender: str, msg: Message):
 
         response = model.generate_content(friend)
         print("Agent: ", response.text)
-        ctx.send("agent1q2grgx3lfpgx00m60njdmxmxq37f85vp6lwtpget9g06cwytft5tsuq7gu5", Message(message = response.text))  # goes to input agent
+        await ctx.send("agent1q2grgx3lfpgx00m60njdmxmxq37f85vp6lwtpget9g06cwytft5tsuq7gu5", Message(message = response.text))  # goes to input agent
         processed_result = (
             f"success"
         )
