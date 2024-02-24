@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+</head>
+<body>
+    <h1>Test Page</h1>
+    <label for="userInput">Enter Message:</label><br>
+    <input type="text" id="userInput"><br>
+    <button onclick="sendMessage()">Send</button>
+
+    <div id="response">
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById("userInput").value;
+            const responseDiv = document.getElementById("response");
+
+            const payload = { "user": userInput };
+
+            const response = await fetch("/send_message", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const responseData = await response.json(); // Parse JSON response
+            responseDiv.innerHTML = "<p>Response: " + JSON.stringify(responseData) + "</p>"; // Display JSON response
+        }
+    </script>
+</body>
+</html>

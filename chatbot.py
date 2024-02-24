@@ -52,7 +52,7 @@ model = genai.GenerativeModel(
     generation_config=generation_config,
     safety_settings=safety_settings,
 )
-
+print(chatbot_agent.address)
 # input_text = input("Enter the text: ")
 # in flask:
 # await query(destination='agent1q2jfxtfxnmxyhav7nsktqgrwtuzvaklvnlmtgye6vh7uhqfcnpunuq3rt3f',message=Message(product=product,quantity=quantity))
@@ -124,11 +124,11 @@ async def get_status_handler(ctx: Context, sender: str, msg: Message):
         # response=requests.post('http://127.0.0.1:5000/llm_input',data=response.text)
         print("Agent: ",response.text)
         # await ctx.send("agent1q2grgx3lfpgx00m60njdmxmxq37f85vp6lwtpget9g06cwytft5tsuq7gu5", Message(message = response.text))  # goes to input agent
-        await ctx.send(sender, Messages(response=response.text))
+        await ctx.send(sender, Message(message=response.text))
         processed_result = (
             f"success"
         )
-        return str(processed_result)
+        # return str(processed_result)
 
     elif "friend" in response.text:
         friend = [
@@ -153,14 +153,14 @@ async def get_status_handler(ctx: Context, sender: str, msg: Message):
         print("Agent: ", response.text)
         # response=requests.post('http://127.0.0.1:5000/llm_input',data=response.text)
         print(response)
-        await ctx.send(sender, Messages(response=response.text))  # goes back
+        await ctx.send(sender, Message(message=response.text))  # goes back
         processed_result = (
             f"success"
         )
-        return str(response.text)
+        # return str(response.text)
 
-    else:
-        return "Invalid response"
+    # else:
+    #     return "Invalid response"
 
 
 if __name__ == "__main__":
