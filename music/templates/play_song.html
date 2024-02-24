@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play a Song</title>
+</head>
+<body>
+    <h1>Play a Song</h1>
+    <p>Track Name: {{ track_name }}</p>
+    <p>Artist Name: {{ artist_name }}</p>
+    {% if track_preview_url %}
+        <audio controls>
+            <source src="{{ track_preview_url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% else %}
+        <p>No preview available for this track.</p>
+    {% endif %}
+</body>
+</html>
