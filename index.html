@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Snapshot</title>
+    <!-- Include html2canvas library -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <h1>Webcam Snapshot</h1>
+    <video id="webcam" width="640" height="480" autoplay></video>
+    <button onclick="startCapturing()">Start Capturing</button>
+    <button onclick="stopCapturing()">Stop Capturing</button>
+    <div id="snapshot-container"></div>
+
+    <script>
+        let captureInterval;
+
+        // Get webcam access
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then((stream) => {
+                document.getElementById('webcam').srcObject = stream;
+            })
+            .catch((error) => {
+                console.error('Error accessing webcam:', error);
+            });
+
+        // Function to capture and save snapshot
+        function captureSnapshot() {
+            html2canvas(document.getElementById('webcam'))
+                .then((canvas) => {
+                    // Convert the canvas to a data URL
+                    const dataURL = canvas.toDataURL();
+
+                    // Create an image element to display the snapshot
+                    const imageElement = document.createElement('img');
+                    imageElement.src = dataURL;
+
+                    // Append the image to the snapshot-container
+                    document.getElementById('snapshot-container').appendChild(imageElement);
+
+                    // Send the image to the Flask API
+                    sendImageToAPI(dataURL);
+                });
+        }
+
+        // Function to start capturing at intervals
+        function startCapturing() {
+            captureInterval = setInterval(captureSnapshot, 2000); // Capture every 5 seconds
+        }
+
+        // Function to stop capturing
+        function stopCapturing() {
+            clearInterval(captureInterval);
+        }
+
+        // Function to send the image to the Flask API
+        function sendImageToAPI(dataURL) {
+            // Create a FormData object to send the image as a file
+            const formData = new FormData();
+            const blob = dataURLtoBlob(dataURL);
+            formData.append('image', blob, 'snapshot.png');
+
+            // Make an AJAX request to the Flask API
+            fetch('http://127.0.0.1:5000/detect_emotion', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Emotion detected:', data.emotion);
+            })
+            .catch(error => {
+                console.error('Error sending image to API:', error);
+            });
+        }
+
+        // Function to convert data URL to Blob
+        function dataURLtoBlob(dataURL) {
+            const byteString = atob(dataURL.split(',')[1]);
+            const mimeString = dataURL.split(',')[0].split(':')[1].split(';')[0];
+            const ab = new ArrayBuffer(byteString.length);
+            const ia = new Uint8Array(ab);
+            for (let i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+            }
+            return new Blob([ab], { type: mimeString });
+        }
+    </script>
+</body>
+</html>
