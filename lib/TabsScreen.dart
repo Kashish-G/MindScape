@@ -3,11 +3,15 @@
 import 'package:flutter/material.dart';
 
 //import 'package:dot_navigation_bar/dot_navigation_bar.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:synergy/CartScreen.dart';
-import 'package:synergy/MainHomePage.dart';
-import 'package:synergy/ProfileScreen.dart';
-import 'package:synergy/SearchScreen.dart';
+ import 'package:google_nav_bar/google_nav_bar.dart';
+// import 'package:synergy/CartScreen.dart';
+// import 'package:synergy/MainHomePage.dart';
+// import 'package:synergy/ProfileScreen.dart';
+// import 'package:synergy/SearchScreen.dart';
+import 'package:synergyapp/CartScreen.dart';
+import 'package:synergyapp/MainHomePage.dart';
+import 'package:synergyapp/ProfileScreen.dart';
+import 'package:synergyapp/SearchScreen.dart';
 //enum _SelectedTab { home, favorite, search, person }
 //import 'package:icons_plus/icons_plus.dart';
 class TabsScreen extends StatefulWidget {
