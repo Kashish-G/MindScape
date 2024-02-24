@@ -52,7 +52,7 @@ model = genai.GenerativeModel(
     generation_config=generation_config,
     safety_settings=safety_settings,
 )
-print(chatbot_agent.address)
+# print(chatbot_agent.address)
 # input_text = input("Enter the text: ")
 # in flask:
 # await query(destination='agent1q2jfxtfxnmxyhav7nsktqgrwtuzvaklvnlmtgye6vh7uhqfcnpunuq3rt3f',message=Message(product=product,quantity=quantity))

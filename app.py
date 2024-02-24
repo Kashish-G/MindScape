@@ -2,13 +2,13 @@ from flask import Flask, request, render_template, jsonify
 from uagents.query import query
 from uagents import Model
 import json
-
+from chatbot import chatbot_agent
 app = Flask(__name__)
 
 class Message(Model):
     message: str
 
-destination = "agent1q2jfxtfxnmxyhav7nsktqgrwtuzvaklvnlmtgye6vh7uhqfcnpunuq3rt3f"
+destination = chatbot_agent.address
 
 @app.route('/send_message', methods=['GET', 'POST'])
 async def send_message():
