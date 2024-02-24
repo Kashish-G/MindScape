@@ -7,10 +7,13 @@ $ pip install google-generativeai
 from uagents.query import query
 from uagents import Agent, Context, Model
 from uagents.setup import fund_agent_if_low
+# import requests
 
 class Message(Model):
     message: str
 
+class Messages(Model):
+    messages: list[Message]
 
 import google.generativeai as genai
 
@@ -54,9 +57,10 @@ model = genai.GenerativeModel(
 # in flask:
 # await query(destination='agent1q2jfxtfxnmxyhav7nsktqgrwtuzvaklvnlmtgye6vh7uhqfcnpunuq3rt3f',message=Message(product=product,quantity=quantity))
 
-@chatbot_agent.on_message(model=Message)
-async def slaanesh_message_handler(ctx: Context, sender: str, msg: Message):
+@chatbot_agent.on_query(model=Message, replies=Message)
+async def get_status_handler(ctx: Context, sender: str, msg: Message):
     input_string = msg.message
+    
     # await ctx.send('agent1q2grgx3lfpgx00m60njdmxmxq37f85vp6lwtpget9g06cwytft5tsuq7gu5', Message(message="hello there sigmar"))
 
 # def llm_model(ctx: Context, sender: str, msg: Message, input_string):
@@ -117,8 +121,10 @@ async def slaanesh_message_handler(ctx: Context, sender: str, msg: Message):
         """.strip()]
 
         response = model.generate_content(mentalassistant)
+        # response=requests.post('http://127.0.0.1:5000/llm_input',data=response.text)
         print("Agent: ",response.text)
-        await ctx.send("agent1q2grgx3lfpgx00m60njdmxmxq37f85vp6lwtpget9g06cwytft5tsuq7gu5", Message(message = response.text))  # goes to input agent
+        # await ctx.send("agent1q2grgx3lfpgx00m60njdmxmxq37f85vp6lwtpget9g06cwytft5tsuq7gu5", Message(message = response.text))  # goes to input agent
+        await ctx.send(sender, Messages(response=response.text))
         processed_result = (
             f"success"
         )
@@ -145,7 +151,9 @@ async def slaanesh_message_handler(ctx: Context, sender: str, msg: Message):
 
         response = model.generate_content(friend)
         print("Agent: ", response.text)
-        await ctx.send("agent1q2grgx3lfpgx00m60njdmxmxq37f85vp6lwtpget9g06cwytft5tsuq7gu5", Message(message = response.text))  # goes to input agent
+        # response=requests.post('http://127.0.0.1:5000/llm_input',data=response.text)
+        print(response)
+        await ctx.send(sender, Messages(response=response.text))  # goes back
         processed_result = (
             f"success"
         )
