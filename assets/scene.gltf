@@ -1,0 +1,256 @@
+{
+  "accessors": [
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 20480,
+      "max": [
+        7.37471342086792,
+        5.482001304626465,
+        9.447486877441406
+      ],
+      "min": [
+        -1.556782841682434,
+        -6.757802963256836,
+        -9.045757293701172
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 245760,
+      "componentType": 5126,
+      "count": 20480,
+      "max": [
+        0.9999907612800598,
+        0.9998218417167664,
+        0.9999185800552368
+      ],
+      "min": [
+        -0.9998711347579956,
+        -0.9997730255126953,
+        -0.999993085861206
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 120144,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 491520,
+      "componentType": 5126,
+      "count": 23994,
+      "max": [
+        0.8105260133743286,
+        5.448175430297852,
+        9.109148979187012
+      ],
+      "min": [
+        -7.221444606781006,
+        -6.726639747619629,
+        -9.060651779174805
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 779448,
+      "componentType": 5126,
+      "count": 23994,
+      "max": [
+        0.999953031539917,
+        0.9997867345809937,
+        0.9999256730079651
+      ],
+      "min": [
+        -0.9999783039093018,
+        -0.9999974370002747,
+        -0.999971330165863
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 480576,
+      "componentType": 5125,
+      "count": 140856,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "BrandXR (https://sketchfab.com/brandxr)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/brain-crush-brain-v2-f081151fde0744f592b5a61ab8aacb73",
+      "title": "Brain Crush Brain V2"
+    },
+    "generator": "Sketchfab-12.64.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 1044000,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1067376,
+      "byteOffset": 1044000,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 2111376,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "MAT_BrainRight",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.16498147605326693,
+          0.5608691142339338,
+          0.7752096179657217,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.3553734756097561
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "MAT_BrainLeft",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.2115488641409221,
+          0.7579697625090449,
+          0.6439086353378016,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.23342225609756098
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "BRAIN_MAT_BrainRight_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0
+          },
+          "indices": 2,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "BRAIN_MAT_BrainLeft_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 4,
+            "POSITION": 3
+          },
+          "indices": 5,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "8181a983eb9f4550b7cd9ed8683e267a.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        5
+      ],
+      "name": "BRAIN"
+    },
+    {
+      "mesh": 0,
+      "name": "BRAIN_MAT_BrainRight_0"
+    },
+    {
+      "mesh": 1,
+      "name": "BRAIN_MAT_BrainLeft_0"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}
