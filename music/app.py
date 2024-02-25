@@ -1,8 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
 import spotipy
-import spotipy.oauth2 as oauth2
 from spotipy.oauth2 import SpotifyOAuth
-from spotipy.oauth2 import SpotifyClientCredentials
+from flask import Flask, render_template, request, redirect, url_for
 import random
 import pandas as pd
 
@@ -15,6 +13,7 @@ SPOTIPY_REDIRECT_URI = 'http://localhost:5000/callback'
 
 # Configure Spotipy
 sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI, scope='user-library-read')
+
 MOOD_CSV_PATHS = {
     'angry': r'songs\angry.csv',
     'disgusted': r'songs\disgusted.csv',
@@ -24,8 +23,6 @@ MOOD_CSV_PATHS = {
     'sad': r'songs\sad.csv',
     'surprised': r'songs\surprised.csv'
 }
-# Load the angry.csv file
-angry_songs_df = pd.read_csv(r'songs\angry.csv')
 
 @app.route('/')
 def index():
@@ -35,11 +32,10 @@ def index():
 @app.route('/callback')
 def callback():
     code = request.args.get('code')
-    mood = request.args.get('mood')  # Get the mood from the query parameters
+    mood = request.args.get('mood')
     token_info = sp_oauth.get_access_token(code)
     access_token = token_info['access_token']
-    return redirect(url_for('play_song', access_token=access_token, mood=mood))  # Pass both access_token and mood
-
+    return redirect(url_for('play_song', access_token=access_token, mood=mood))
 
 @app.route('/play_song/<access_token>/<mood>')
 def play_song(access_token, mood):
@@ -52,8 +48,16 @@ def play_song(access_token, mood):
         # Choose a random song name from the CSV file
         random_song_name = random.choice(df['Name'])
         
-        # Search for the selected song on Spotify
-        results = sp.search(q=random_song_name, type='track', limit=1)
+        try:
+            # Search for the selected song on Spotify
+            results = sp.search(q=random_song_name, type='track', limit=1)
+        except spotipy.SpotifyException as e:
+            if e.http_status == 401:  # Access token expired
+                token_info = sp_oauth.refresh_access_token(sp_oauth.refresh_token)
+                access_token = token_info['access_token']
+                sp = spotipy.Spotify(auth=access_token)
+                # Retry the request with the refreshed access token
+                results = sp.search(q=random_song_name, type='track', limit=1)
         
         # Extract track details
         track_info = results['tracks']['items'][0]
@@ -68,25 +72,3 @@ def play_song(access_token, mood):
 
 if __name__ == '__main__':
     app.run(debug=True)
-   
-
-# # Spotify API credentials
-# SPOTIPY_CLIENT_ID = '746eb9f6ddd94bac9a834eab96a9bc3b'
-# SPOTIPY_CLIENT_SECRET = 'dcd199ed105349f58bec17288bfc9a93'
-# SPOTIPY_REDIRECT_URI = 'http://localhost:5000/callback'
-
-# # Configure Spotipy
-# sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI, scope='user-library-read')
-# MOOD_CSV_PATHS = {
-#     'angry': r'songs\angry.csv',
-#     'disgusted': r'songs\disgusted.csv',
-#     'fearful': r'songs\fearful.csv',
-#     'happy': r'songs\happy.csv',
-#     'neutral': r'songs\neutral.csv',
-#     'sad': r'songs\sad.csv',
-#     'surprised': r'songs\surprised.csv'
-# }
-
-# def get_random_song(mood):
-#     csv_path = MOOD_CSV_PATHS.get(mood.lower())
-#     if csv_path:

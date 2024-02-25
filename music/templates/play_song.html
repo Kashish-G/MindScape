@@ -4,18 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play a Song</title>
+    <style>
+        /* Common styles */
+        body {
+          font-family: Arial, sans-serif;
+          margin-top: 40px;
+          padding: 0;
+          color: #fff; /* Change base text color to white */
+          background-color: #121212; /* Change background color to black */
+        }
+        
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #1db954; /* Change container background color to Spotify green */
+          border-radius: 10px; /* Increase border radius for rounded corners */
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adjust shadow for depth */
+        }
+        
+        h1 {
+          font-size: 28px; /* Increase heading size */
+          font-weight: bold;
+          margin-top: 40px;
+          margin-bottom: 20px;
+        }
+        
+        p {
+          line-height: 1.6; /* Improve paragraph readability */
+        }
+        
+        /* Specific styles for index.html */
+        #userInput {
+          padding: 12px; /* Increase input padding */
+          border: none; /* Remove border */
+          border-radius: 8px; /* Increase border radius */
+          width: 250px; /* Maintain input width */
+        }
+        
+        button {
+          padding: 10px 20px; /* Adjust button padding */
+          background-color: #1db954; /* Keep primary color as Spotify green */
+          color: #fff;
+          border: none;
+          border-radius: 8px; /* Increase border radius */
+          cursor: pointer;
+        }
+        
+        button:hover {
+          background-color: #169846; /* Darken primary color on hover */
+        }
+        
+        #response {
+          margin-top: 20px;
+          background-color: #282828; /* Darken background color */
+          border-radius: 8px; /* Increase border radius */
+          padding: 20px;
+        }
+        
+
+    </style>
 </head>
 <body>
-    <h1>Play a Song</h1>
-    <p>Track Name: {{ track_name }}</p>
-    <p>Artist Name: {{ artist_name }}</p>
-    {% if track_preview_url %}
-        <audio controls>
-            <source src="{{ track_preview_url }}" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    {% else %}
-        <p>No preview available for this track.</p>
-    {% endif %}
+    <div class="container">
+        <h1>Play a Song</h1>
+        <p>Track Name: {{ track_name }}</p>
+        <p>Artist Name: {{ artist_name }}</p>
+        {% if track_preview_url %}
+            <audio controls>
+                <source src="{{ track_preview_url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        {% else %}
+            <p>No preview available for this track.</p>
+        {% endif %}
+    </div>
 </body>
 </html>
