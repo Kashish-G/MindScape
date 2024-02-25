@@ -1,4 +1,4 @@
-<br/>
+![image](https://github.com/Kashish-G/Synergy_DustBytes/assets/113776577/c82953bc-351f-41a6-b90c-8ce5cd7f5362)<br/>
 <p align="center">
   <a href="https://github.com/Kashish-G/Synergy_DustBytes">
     <img src="https://github.com/Kashish-G/Synergy_DustBytes/blob/devshah/public/mindscape.png" alt="Logo" width="140" height="80">
@@ -27,6 +27,9 @@
 
 ![Screen Shot](https://github.com/Kashish-G/Synergy_DustBytes/blob/main/Screenshot%202024-02-25%20111055.png)
 ![Screen Shot](https://github.com/Kashish-G/Synergy_DustBytes/blob/main/image.png)
+![Screen Shot](https://github.com/Kashish-G/Synergy_DustBytes/blob/main/Screenshot%202024-02-25%20112357.png)
+![Screen Shot](https://github.com/Kashish-G/Synergy_DustBytes/blob/main/Screenshot%202024-02-25%20112618.png)
+
 
 In this hackathon, participants will tackle the challenge of developing an AI-driven solution for suicide detection and mental health monitoring. The objective is to create a system that can analyze various data sources to identify individuals who may be at risk of suicide or experiencing deteriorating mental health, thereby enabling timely intervention and support. 
 
