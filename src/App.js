@@ -1,5 +1,4 @@
 import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
-import ParticlesBg from "./components/ParticlesBg";
 import { useEffect } from "react";
 import {
   Routes,
@@ -11,6 +10,7 @@ import HomeDesktop from "./pages/HomeDesktop";
 import Minfulmate from "./pages/Minfulmate";
 import Community from "./pages/Community";
 import ZenZone from "./pages/ZenZone";
+import MemeGenerator from "./pages/MemeGenerator";
 
 function App() {
   const action = useNavigationType();
@@ -50,12 +50,12 @@ function App() {
 
   return (
     <ChakraProvider>
-      <ParticlesBg />
       <Routes>
         <Route path="/" element={<HomeDesktop />} />
         <Route path="/mindfulmate" element={<Minfulmate />} />
         <Route path="/community" element={<Community />} />
         <Route path="/zenzone" element={<ZenZone />} />
+        <Route path="/meme" element={<MemeGenerator/>} />
       </Routes>
     </ChakraProvider>
   );

@@ -42,8 +42,7 @@ const Minfulmate = () => {
         }
       });
   
-      const responseData = response.data; // Extract the response data
-      // Construct the botResponse object
+      const responseData = response.data;
       const botResponse = {
         text: responseData.Answer,
         time: new Date(),

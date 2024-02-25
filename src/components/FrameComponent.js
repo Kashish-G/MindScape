@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const FrameComponent = () => {
+  const navigate = useNavigate()
   return (
     <footer className="self-stretch flex flex-col items-start justify-start gap-[51px_0px] max-w-full text-left text-base text-body-text font-b3-regular mq750:gap-[51px_0px]">
       <div className="self-stretch flex flex-row items-center justify-between gap-[20px] max-w-full mq750:flex-wrap">
@@ -10,19 +13,16 @@ const FrameComponent = () => {
             />
         </div>
         <div className="flex flex-row items-start justify-start gap-[0px_40px] max-w-full mq450:flex-wrap mq450:gap-[0px_40px]  cursor-pointer">
-          <div className="relative tracking-[0.02em] leading-[155%] font-medium cursor-pointer">
+          <div className="relative tracking-[0.02em] leading-[155%] font-medium cursor-pointer" onClick={()=>navigate('/')}>
             Home
           </div>
-          <div className="relative tracking-[0.02em] leading-[155%] font-medium cursor-pointer">
+          <div className="relative tracking-[0.02em] leading-[155%] font-medium cursor-pointer" onClick={()=>navigate('/mindfulmate')}>
             MindfulMate
           </div>
-          <div className="relative tracking-[0.02em] leading-[155%] font-medium cursor-pointer">
-            Analyzer
+          <div className="relative tracking-[0.02em] leading-[155%] font-medium cursor-pointer" onClick={()=>navigate('/zenzone')}>
+            ZenZone
           </div>
-          <div className="relative tracking-[0.02em] leading-[155%] font-medium cursor-pointer">
-            Community
-          </div>
-          <div className="relative tracking-[0.02em] leading-[155%] font-medium cursor-pointer">
+          <div className="relative tracking-[0.02em] leading-[155%] font-medium cursor-pointer" onClick={()=>navigate('/contact')}>
             Contact
           </div>
         </div>

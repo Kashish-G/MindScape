@@ -27,9 +27,6 @@ const FrameComponent8 = () => {
           <div className="relative tracking-[0.02em] leading-[155%] font-medium z-[2] cursor-pointer" onClick={()=>navigate('/zenzone')}>
           ZenZone
           </div>
-          <div className="relative tracking-[0.02em] leading-[155%] font-medium z-[2] cursor-pointer" onClick={()=>navigate('/community')}>
-            Community
-          </div>
           <div className="relative tracking-[0.02em] leading-[155%] font-medium z-[2] cursor-pointer" onClick={()=>navigate('/contact')}>
             Contact
           </div>

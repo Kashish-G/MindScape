@@ -16,7 +16,7 @@ const ParticlesBg = () => {
     }, []);
 
     return (
-        <div style={{ height: "100%", width: "100%", position: "absolute", top: "0", zIndex: "1" }}>
+        <div style={{ height: "100%", width: "100%", position: "absolute", top: "0" }}>
             <Particles
                 id="tsparticles"
                 init={particlesInit}

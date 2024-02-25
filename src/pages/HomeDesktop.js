@@ -13,9 +13,11 @@ import HorizontalRule from "../components/HorizontalRule";
 import GroupComponent from "../components/GroupComponent";
 import FrameComponent from "../components/FrameComponent";
 import BrainCanvas from "../components/Brain";
+import ParticlesBg from "../components/ParticlesBg";
 const HomeDesktop = () => {
   return (
     <div className="w-full relative bg-secondary-color overflow-hidden flex flex-col items-center justify-start pt-10 px-0 pb-[31px] box-border gap-[104px_0px] tracking-[normal] text-left text-23xl text-dark-blue-design font-b2-semibold mq450:gap-[104px_0px] mq750:gap-[104px_0px]">
+      <ParticlesBg/>
       <img
         className="self-stretch relative max-w-full overflow-hidden max-h-full hidden z-[0]"
         alt=""
@@ -25,7 +27,7 @@ const HomeDesktop = () => {
         <Rectangle />
         <FrameComponent8 />
         <h1 className="!m-[0] w-[687px] absolute bottom-[-10px] left-[20px] text-inherit tracking-[-0.02em] leading-[120%] capitalize font-semibold font-inherit inline-block z-[2] mq450:text-[37px] mq450:leading-[45px] mq750:text-[50px] mq750:leading-[60px]">
-          Embrace a journey toward profound Mental Well-being!
+          Embrace a journey towards profound Mental Well-being!
         </h1>
         <div className="w-[531px] absolute !m-[0] bottom-[-94px] left-[19px] text-lg tracking-[0.02em] leading-[155%] font-b3-regular text-body-text inline-block z-[1]">
           Relax, we've got your mental well-being covered with the finest care.
