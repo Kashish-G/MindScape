@@ -1,4 +1,4 @@
-![image](https://github.com/Kashish-G/Synergy_DustBytes/assets/113776577/c82953bc-351f-41a6-b90c-8ce5cd7f5362)<br/>
+
 <p align="center">
   <a href="https://github.com/Kashish-G/Synergy_DustBytes">
     <img src="https://github.com/Kashish-G/Synergy_DustBytes/blob/devshah/public/mindscape.png" alt="Logo" width="140" height="80">
